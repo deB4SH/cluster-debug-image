@@ -3,6 +3,8 @@ name: Build
 on:
   push:
     branches: [ "main" ]
+    paths:
+      - docker/**
 
 permissions: 
   packages: write
@@ -36,7 +38,7 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         context: .
-        file: ./Dockerfile
+        file: ./docker/Dockerfile
         push: ${{ github.event_name != 'pull_request' }}
         tags: ${{ steps.meta_build.outputs.tags }}
         labels: ${{ steps.meta_build.outputs.labels }}
