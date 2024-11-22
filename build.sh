@@ -38,5 +38,5 @@ echo "Building cluster-debug-image image with tag $TAG"
 
 ${cli_cmd}  \
     build . \
-    -f Dockerfile \
+    -f docker/Dockerfile \
     -t $(echo "$REGISTRY/cluster-debug-image:$TAG")
